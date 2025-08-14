@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFE OFFICE - Secure Banking Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'inter': ['Inter', 'sans-serif'],
+                },
+                colors: {
+                    'wema-purple': '#8B2F97',
+                    'wema-light': '#A855F7',
+                    'wema-dark': '#6B21A8',
+                }
+            }
+        }
+    };
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+
+    <!-- @COMPONENT: AppContainer [main application wrapper] -->
+    <div id="app-container">
+        
+        <!-- Landing Page -->
+        <div id="landing-page" class="min-h-screen">
+            <!-- @COMPONENT: Header [navigation and branding] -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-16">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-r from-wema-purple to-wema-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-white text-sm"></i>
+                                </div>
+                                <span class="text-xl font-bold text-gray-900">SAFE OFFICE</span>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex items-center space-x-6">
+                            <a href="#security" class="text-gray-600 hover:text-wema-purple transition-colors">Security</a>
+                            <a href="#features" class="text-gray-600 hover:text-wema-purple transition-colors">Features</a>
+                            <a href="#support" class="text-gray-600 hover:text-wema-purple transition-colors">Support</a>
+                            <button onclick="showLoginPage()" class="bg-wema-purple text-white px-6 py-2 rounded-lg hover:bg-wema-dark transition-colors">
+                                Employee Login
+                            </button>
+                        </div>
+                        <button class="md:hidden">
+                            <i class="fas fa-bars text-gray-600"></i>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            <!-- @END_COMPONENT: Header -->
+
+            <!-- Hero Section -->
+            <section class="relative overflow-hidden">
+                <div class="bg-gradient-to-br from-wema-purple via-purple-600 to-wema-light">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="text-white">
+                                <h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+                                    Secure Banking
+                                    <span class="block text-purple-200">From Anywhere</span>
+                                </h1>
+                                <p class="text-xl text-purple-100 mb-8 leading-relaxed">
+                                    SAFE OFFICE provides a zero-trust security framework for remote banking employees. 
+                                    Access sensitive data and perform critical operations with confidence, from any location.
+                                </p>
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <button onclick="showLoginPage()" class="bg-white text-wema-purple px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                                        Access Dashboard
+                                    </button>
+                                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-wema-purple transition-colors">
+                                        Learn More
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Futuristic banking illustration placeholder -->
+                            <div class="hidden lg:block">
+                                <!-- A professional woman using advanced banking technology with digital security elements -->
+                                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                                     alt="Professional banking technology" 
+                                     class="rounded-2xl shadow-2xl w-full h-auto" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Security Features -->
+            <section id="security" class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                            Enterprise-Grade Security
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Built with zero-trust architecture to protect sensitive banking operations in a distributed workforce.
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-user-shield text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Multi-Factor Authentication</h3>
+                            <p class="text-gray-600">Advanced authentication including biometric verification and behavioral analysis.</p>
+                        </div>
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-lock text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">End-to-End Encryption</h3>
+                            <p class="text-gray-600">All data is encrypted in transit and at rest with bank-grade security protocols.</p>
+                        </div>
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-eye text-2xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Real-Time Monitoring</h3>
+                            <p class="text-gray-600">Continuous monitoring of user behavior and system access patterns.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="bg-gray-900 text-white py-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-4 gap-8">
+                        <div>
+                            <div class="flex items-center space-x-2 mb-4">
+                                <div class="w-8 h-8 bg-gradient-to-r from-wema-purple to-wema-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-white text-sm"></i>
+                                </div>
+                                <span class="text-xl font-bold">SAFE OFFICE</span>
+                            </div>
+                            <p class="text-gray-400">Securing the future of remote banking operations.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4">Security</h4>
+                            <ul class="space-y-2 text-gray-400">
+                                <li><a href="#" class="hover:text-white">Zero Trust</a></li>
+                                <li><a href="#" class="hover:text-white">Compliance</a></li>
+                                <li><a href="#" class="hover:text-white">Audit Logs</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4">Support</h4>
+                            <ul class="space-y-2 text-gray-400">
+                                <li><a href="#" class="hover:text-white">Help Center</a></li>
+                                <li><a href="#" class="hover:text-white">Documentation</a></li>
+                                <li><a href="#" class="hover:text-white">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-4">Powered by</h4>
+                            <p class="text-gray-400">Wema Bank Innovation Team</p>
+                            <p class="text-gray-400 mt-2">© 2024 SAFE OFFICE</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Multi-Step Login Page -->
+        <div id="login-page" class="hidden min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
+            <div class="min-h-screen flex items-center justify-center p-4">
+                <div class="max-w-md w-full">
+                    
+                    <!-- Step 1: Username/Password -->
+                    <div id="login-step-1" class="bg-white rounded-xl shadow-xl p-8">
+                        <!-- @COMPONENT: LoginHeader [step indicator and branding] -->
+                        <div class="text-center mb-8">
+                            <div class="flex items-center justify-center space-x-2 mb-4">
+                                <div class="w-10 h-10 bg-gradient-to-r from-wema-purple to-wema-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-gray-900">SAFE OFFICE</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Employee Login</h2>
+                            <p class="text-gray-600">Step 1 of 3: Enter your credentials</p>
+                            <div class="flex justify-center space-x-2 mt-4">
+                                <div class="w-8 h-1 bg-wema-purple rounded-full"></div>
+                                <div class="w-8 h-1 bg-gray-200 rounded-full"></div>
+                                <div class="w-8 h-1 bg-gray-200 rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- @END_COMPONENT: LoginHeader -->
+
+                        <!-- @COMPONENT: LoginForm [username and password inputs] -->
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Employee ID</label>
+                                <input type="text" 
+                                       placeholder="Enter your employee ID" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none transition-colors"
+                                       data-bind="employeeId" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                                <div class="relative">
+                                    <input type="password" 
+                                           placeholder="Enter your password" 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none transition-colors pr-12"
+                                           data-bind="password" />
+                                    <button type="button" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" 
+                                    onclick="showOTPStep()" 
+                                    class="w-full bg-wema-purple text-white py-3 px-4 rounded-lg font-medium hover:bg-wema-dark transition-colors"
+                                    data-event="click:validateCredentials">
+                                Continue to Verification
+                            </button>
+                        </form>
+                        <!-- @END_COMPONENT: LoginForm -->
+
+                        <div class="mt-6 text-center">
+                            <button onclick="showLandingPage()" class="text-wema-purple hover:text-wema-dark text-sm">
+                                ← Back to Home
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: OTP Verification -->
+                    <div id="login-step-2" class="hidden bg-white rounded-xl shadow-xl p-8">
+                        <!-- @COMPONENT: OTPHeader [step 2 indicator] -->
+                        <div class="text-center mb-8">
+                            <div class="flex items-center justify-center space-x-2 mb-4">
+                                <div class="w-10 h-10 bg-gradient-to-r from-wema-purple to-wema-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-white"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-gray-900">SAFE OFFICE</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Verify Identity</h2>
+                            <p class="text-gray-600">Step 2 of 3: Enter the OTP sent to your device</p>
+                            <div class="flex justify-center space-x-2 mt-4">
+                                <div class="w-8 h-1 bg-green-500 rounded-full"></div>
+                                <div class="w-8 h-1 bg-wema-purple rounded-full"></div>
+                                <div class="w-8 h-1 bg-gray-200 rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- @END_COMPONENT: OTPHeader -->
+
+                        <!-- @COMPONENT: OTPForm [OTP input fields] -->
+                        <div class="text-center mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                                <i class="fas fa-check text-2xl text-green-600"></i>
+                            </div>
+                            <p class="text-gray-600">OTP sent to ***-***-1234</p>
+                        </div>
+
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2 text-center">Enter 6-digit OTP</label>
+                                <div class="flex justify-center space-x-3">
+                                    <!-- @MAP: 6 OTP input boxes -->
+                                    <input type="text" maxlength="1" class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none" />
+                                    <input type="text" maxlength="1" class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none" />
+                                    <input type="text" maxlength="1" class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none" />
+                                    <input type="text" maxlength="1" class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none" />
+                                    <input type="text" maxlength="1" class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none" />
+                                    <input type="text" maxlength="1" class="w-12 h-12 text-center text-xl font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none" />
+                                    <!-- @END_MAP -->
+                                </div>
+                            </div>
+                            <button type="button" 
+                                    onclick="showChatStep()" 
+                                    class="w-full bg-wema-purple text-white py-3 px-4 rounded-lg font-medium hover:bg-wema-dark transition-colors"
+                                    data-event="click:verifyOTP">
+                                Verify OTP
+                            </button>
+                        </form>
+                        <!-- @END_COMPONENT: OTPForm -->
+
+                        <div class="mt-6 text-center space-y-2">
+                            <button class="text-wema-purple hover:text-wema-dark text-sm">Resend OTP</button>
+                            <br>
+                            <button onclick="showLoginStep1()" class="text-gray-500 hover:text-gray-700 text-sm">
+                                ← Back to Login
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Chat Verification -->
+                    <div id="login-step-3" class="hidden bg-white rounded-xl shadow-xl p-8">
+                        <!-- @COMPONENT: ChatHeader [step 3 indicator] -->
+                        <div class="text-center mb-8">
+                            <div class="flex items-center justify-center space-x-2 mb-4">
+                                <div class="w-10 h-10 bg-gradient-to-r from-wema-purple to-wema-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-comments text-white"></i>
+                                </div>
+                                <span class="text-2xl font-bold text-gray-900">SAFE OFFICE</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-gray-900 mb-2">Security Check</h2>
+                            <p class="text-gray-600">Step 3 of 3: Quick security verification</p>
+                            <div class="flex justify-center space-x-2 mt-4">
+                                <div class="w-8 h-1 bg-green-500 rounded-full"></div>
+                                <div class="w-8 h-1 bg-green-500 rounded-full"></div>
+                                <div class="w-8 h-1 bg-wema-purple rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- @END_COMPONENT: ChatHeader -->
+
+                        <!-- @COMPONENT: MiniChat [security questions interface] -->
+                        <div class="bg-gray-50 rounded-lg p-4 mb-6 h-64 overflow-y-auto" data-mock="true">
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-wema-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-robot text-white text-xs"></i>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm flex-1">
+                                        <p class="text-sm text-gray-700">Hello! For security purposes, I need to ask you a quick question.</p>
+                                        <span class="text-xs text-gray-500">Security Bot • now</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-wema-purple rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-robot text-white text-xs"></i>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm flex-1">
+                                        <p class="text-sm text-gray-700">What is the name of your first manager at Wema Bank?</p>
+                                        <span class="text-xs text-gray-500">Security Bot • now</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3 flex-row-reverse">
+                                    <div class="w-8 h-8 bg-gray-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-user text-white text-xs"></i>
+                                    </div>
+                                    <div class="bg-wema-purple rounded-lg p-3 text-white flex-1">
+                                        <p class="text-sm" data-bind="userResponse">Sarah Johnson</p>
+                                        <span class="text-xs text-purple-200">You • now</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-check text-white text-xs"></i>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-3 shadow-sm flex-1">
+                                        <p class="text-sm text-gray-700">Perfect! Identity verified. You can now access your dashboard.</p>
+                                        <span class="text-xs text-gray-500">Security Bot • now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex space-x-3 mb-6">
+                            <input type="text" 
+                                   placeholder="Type your answer..." 
+                                   class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wema-purple focus:border-wema-purple outline-none"
+                                   data-bind="securityAnswer" />
+                            <button class="bg-wema-purple text-white px-6 py-3 rounded-lg hover:bg-wema-dark transition-colors">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+
+                        <button onclick="showDashboard()" 
+                                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-green-700 transition-colors"
+                                data-event="click:completeSecurity">
+                            Access Dashboard
+                        </button>
+                        <!-- @END_COMPONENT: MiniChat -->
+
+                        <div class="mt-6 text-center">
+                            <button onclick="showOTPStep()" class="text-gray-500 hover:text-gray-700 text-sm">
+                                ← Back to OTP
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Employee Dashboard -->
+        <div id="dashboard-page" class="hidden min-h-screen bg-gray-50">
+            <!-- @COMPONENT: DashboardHeader [top navigation with user info] -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-center h-16">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gradient-to-r from-wema-purple to-wema-light rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-white text-sm"></i>
+                                </div>
+                                <span class="text-xl font-bold text-gray-900">SAFE OFFICE</span>
+                            </div>
+                            <nav class="hidden lg:flex items-center space-x-6 ml-8">
+                                <a href="#" class="text-wema-purple font-medium">Dashboard</a>
+                                <a href="#" class="text-gray-600 hover:text-wema-purple transition-colors">Transactions</a>
+                                <a href="#" class="text-gray-600 hover:text-wema-purple transition-colors">Customers</a>
+                                <a href="#" class="text-gray-600 hover:text-wema-purple transition-colors">Loans</a>
+                                <a href="#" class="text-gray-600 hover:text-wema-purple transition-colors">Reports</a>
+                            </nav>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="relative">
+                                <button class="p-2 text-gray-400 hover:text-gray-600">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+                                </button>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="text-right hidden sm:block">
+                                    <p class="text-sm font-medium text-gray-900" data-bind="employee.name">John Adebayo</p>
+                                    <p class="text-xs text-gray-500" data-bind="employee.role">Senior Banking Officer</p>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" 
+                                     alt="Employee profile" 
+                                     class="w-10 h-10 rounded-full object-cover" 
+                                     data-mock-image="true" />
+                                <button onclick="showLandingPage()" class="text-gray-400 hover:text-gray-600">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- @END_COMPONENT: DashboardHeader -->
+
+            <div class="flex">
+                <!-- @COMPONENT: Sidebar [navigation menu] -->
+                <aside class="hidden lg:block w-64 bg-white shadow-sm border-r border-gray-200 min-h-screen">
+                    <div class="p-6">
+                        <nav class="space-y-2">
+                            <a href="#" class="flex items-center space-x-3 text-wema-purple bg-purple-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span class="font-medium">Overview</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-wema-purple hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Transactions</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-wema-purple hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <span>Loan Management</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-wema-purple hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-users"></i>
+                                <span>Customer Data</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-wema-purple hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analytics</span>
+                            </a>
+                            <a href="#" class="flex items-center space-x-3 text-gray-600 hover:text-wema-purple hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </nav>
+                    </div>
+                </aside>
+                <!-- @END_COMPONENT: Sidebar -->
+
+                <!-- Main Content -->
+                <main class="flex-1 p-6">
+                    <!-- Dashboard Stats -->
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold text-gray-900 mb-6">Dashboard Overview</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <!-- @MAP: Dashboard stat cards -->
+                            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Pending Approvals</p>
+                                        <p class="text-3xl font-bold text-gray-900" data-bind="stats.pendingApprovals">24</p>
+                                    </div>
+                                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-clock text-orange-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <span class="text-sm text-orange-600">↑ 12%</span>
+                                    <span class="text-sm text-gray-500 ml-2">vs last week</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Loans Processed</p>
+                                        <p class="text-3xl font-bold text-gray-900" data-bind="stats.loansProcessed">187</p>
+                                    </div>
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <span class="text-sm text-green-600">↑ 23%</span>
+                                    <span class="text-sm text-gray-500 ml-2">vs last week</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Total Transactions</p>
+                                        <p class="text-3xl font-bold text-gray-900" data-bind="stats.totalTransactions">₦2.4M</p>
+                                    </div>
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-exchange-alt text-blue-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <span class="text-sm text-green-600">↑ 8%</span>
+                                    <span class="text-sm text-gray-500 ml-2">vs last week</span>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Active Customers</p>
+                                        <p class="text-3xl font-bold text-gray-900" data-bind="stats.activeCustomers">1,247</p>
+                                    </div>
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-users text-purple-600 text-xl"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center">
+                                    <span class="text-sm text-green-600">↑ 5%</span>
+                                    <span class="text-sm text-gray-500 ml-2">vs last week</span>
+                                </div>
+                            </div>
+                            <!-- @END_MAP -->
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                        <!-- @COMPONENT: QuickActions [action cards for common tasks] -->
+                        <div class="lg:col-span-2">
+                            <h2 class="text-xl font-bold text-gray-900 mb-4">Quick Actions</h2>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <!-- @MAP: Quick action cards -->
+                                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer"
+                                     data-event="click:openLoanApproval">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-hand-holding-usd text-green-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900">Loan Approval</h3>
+                                            <p class="text-sm text-gray-600">Review and approve loan applications</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer"
+                                     data-event="click:openTransferApproval">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-exchange-alt text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900">Transfer Approval</h3>
+                                            <p class="text-sm text-gray-600">Approve high-value transfer requests</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer"
+                                     data-event="click:openCustomerData">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-download text-purple-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900">Download Data</h3>
+                                            <p class="text-sm text-gray-600">Export customer data reports</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow cursor-pointer"
+                                     data-event="click:openAccountManagement">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-user-cog text-orange-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-gray-900">Account Management</h3>
+                                            <p class="text-sm text-gray-600">Manage customer accounts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- @END_MAP -->
+                            </div>
+                        </div>
+                        <!-- @END_COMPONENT: QuickActions -->
+
+                        <!-- Recent Activities -->
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-900 mb-4">Recent Activities</h2>
+                            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                                <div class="space-y-4">
+                                    <!-- @MAP: Recent activity items -->
+                                    <div class="flex items-start space-x-3" data-mock="true">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Loan approved for Customer #12847</p>
+                                            <p class="text-xs text-gray-500">2 minutes ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3" data-mock="true">
+                                        <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Transfer of ₦500,000 approved</p>
+                                            <p class="text-xs text-gray-500">15 minutes ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3" data-mock="true">
+                                        <div class="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Customer data exported</p>
+                                            <p class="text-xs text-gray-500">1 hour ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3" data-mock="true">
+                                        <div class="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
+                                        <div>
+                                            <p class="text-sm font-medium text-gray-900">Account status updated</p>
+                                            <p class="text-xs text-gray-500">2 hours ago</p>
+                                        </div>
+                                    </div>
+                                    <!-- @END_MAP -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Transactions Table -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200">
+                        <div class="p-6 border-b border-gray-200">
+                            <div class="flex items-center justify-between">
+                                <h2 class="text-xl font-bold text-gray-900">Pending Approvals</h2>
+                                <button class="text-wema-purple hover:text-wema-dark font-medium text-sm">
+                                    View All
+                                </button>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Transaction</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Priority</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <!-- @MAP: Pending transaction rows -->
+                                    <tr data-mock="true">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                                    <i class="fas fa-exchange-alt text-blue-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="text-sm font-medium text-gray-900">Wire Transfer</div>
+                                                    <div class="text-sm text-gray-500">#TXN-001247</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900" data-bind="customer.name">Adunni Adebayo</div>
+                                            <div class="text-sm text-gray-500" data-bind="customer.account">Account: 1234567890</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900">₦2,500,000</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                High
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                            <button class="text-green-600 hover:text-green-900" data-event="click:approveTransaction">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900" data-event="click:rejectTransaction">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <button class="text-blue-600 hover:text-blue-900" data-event="click:viewDetails">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr data-mock="true">
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                                    <i class="fas fa-hand-holding-usd text-green-600 text-xs"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="text-sm font-medium text-gray-900">Loan Application</div>
+                                                    <div class="text-sm text-gray-500">#LOAN-005623</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900" data-bind="customer.name">Emeka Okafor</div>
+                                            <div class="text-sm text-gray-500" data-bind="customer.account">Account: 9876543210</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900">₦5,000,000</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                                Medium
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                            <button class="text-green-600 hover:text-green-900" data-event="click:approveTransaction">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900" data-event="click:rejectTransaction">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <button class="text-blue-600 hover:text-blue-900" data-event="click:viewDetails">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- @END_MAP -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: AppContainer -->
+
+    <script>
+        (function() {
+            // Page navigation functions
+            window.showLandingPage = function() {
+                document.getElementById('landing-page').classList.remove('hidden');
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('dashboard-page').classList.add('hidden');
+            };
+
+            window.showLoginPage = function() {
+                document.getElementById('landing-page').classList.add('hidden');
+                document.getElementById('login-page').classList.remove('hidden');
+                document.getElementById('dashboard-page').classList.add('hidden');
+                showLoginStep1();
+            };
+
+            window.showDashboard = function() {
+                document.getElementById('landing-page').classList.add('hidden');
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('dashboard-page').classList.remove('hidden');
+            };
+
+            // Login steps navigation
+            window.showLoginStep1 = function() {
+                document.getElementById('login-step-1').classList.remove('hidden');
+                document.getElementById('login-step-2').classList.add('hidden');
+                document.getElementById('login-step-3').classList.add('hidden');
+            };
+
+            window.showOTPStep = function() {
+                document.getElementById('login-step-1').classList.add('hidden');
+                document.getElementById('login-step-2').classList.remove('hidden');
+                document.getElementById('login-step-3').classList.add('hidden');
+            };
+
+            window.showChatStep = function() {
+                document.getElementById('login-step-1').classList.add('hidden');
+                document.getElementById('login-step-2').classList.add('hidden');
+                document.getElementById('login-step-3').classList.remove('hidden');
+            };
+
+            // Auto-focus next OTP input
+            const otpInputs = document.querySelectorAll('input[maxlength="1"]');
+            otpInputs.forEach((input, index) => {
+                input.addEventListener('keyup', function() {
+                    if (this.value.length === 1 && index < otpInputs.length - 1) {
+                        otpInputs[index + 1].focus();
+                    }
+                });
+            });
+
+            // TODO: Implement business logic for:
+            // - Form validation and submission
+            // - API calls for authentication
+            // - Real-time data updates for dashboard
+            // - Transaction processing workflows
+            // - Customer data management
+            // - Security audit logging
+            // - Session management and timeouts
+        })();
+    </script>
+</body>
+</html>
